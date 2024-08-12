@@ -6,6 +6,7 @@ from wordcloud import WordCloud
 import os
 
 def load_data():
+    # Updated file paths
     train_df = pd.read_csv('train.csv')
     test_df = pd.read_csv('test.csv')
     anime_df = pd.read_csv('anime.csv')
@@ -44,7 +45,6 @@ def app():
 
     st.markdown('<div class="main">', unsafe_allow_html=True)
 
-    
     st.title("Exploratory Data Analysis (EDA)")
     
     # Check if the image file exists and display it
@@ -52,7 +52,6 @@ def app():
         st.image('anim.png', use_column_width=True)
     else:
         st.error("Image file 'anim.png' not found in the directory")
-
 
     train_df, test_df, anime_df = load_data()
 
@@ -100,10 +99,7 @@ These descriptive statistics provide a comprehensive overview of the dataset, al
     st.header("Missing Values")
     st.write(anime_df.isnull().sum())
 
-
-
     st.header("Data Visualization")
-    
     
     # Generate word cloud for genres
     st.subheader("Word Cloud of Genres")
@@ -114,7 +110,6 @@ These descriptive statistics provide a comprehensive overview of the dataset, al
     **Interpretation:**
     The word cloud indicates the most common genres in our dataset, highlighting that 'Action', 'Sci-Fi', 'Adventure', and 'Comedy' are particularly prevalent. Note the appearance of combinations like 'Action Adventure' and 'Adventure Comedy', which show popular genre pairings.
     """)
-
 
     # Total Members by Top 10 Genres
     st.subheader("Total Members by Top 10 Genres")
@@ -136,7 +131,6 @@ These descriptive statistics provide a comprehensive overview of the dataset, al
     plt.tight_layout()
     st.pyplot(plt)
 
-
     st.markdown("""
     **Interpretation:**
     Comedy and Action genres have the highest number of members, suggesting their broad appeal. The top 10 genres reveal a diverse set of interests among the anime community.
@@ -154,8 +148,6 @@ These descriptive statistics provide a comprehensive overview of the dataset, al
     plt.tight_layout()
     st.pyplot(plt)
 
-
-
     st.markdown("""
     **Interpretation:**
     This bar chart shows that TV series generally receive higher average ratings compared to other types like Movies or OVAs. This insight is useful for understanding viewer preferences.
@@ -170,8 +162,6 @@ These descriptive statistics provide a comprehensive overview of the dataset, al
     plt.ylabel('Count')
     plt.tight_layout()
     st.pyplot(plt)
-
-
 
     st.markdown("""
     **Interpretation:**
@@ -188,8 +178,6 @@ These descriptive statistics provide a comprehensive overview of the dataset, al
     plt.title('Correlation Heatmap of Anime Ratings and Members')
     plt.tight_layout()
     st.pyplot(plt)
-
-
 
     st.markdown("""
     **Interpretation:**
