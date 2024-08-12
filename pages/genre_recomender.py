@@ -4,9 +4,12 @@ import pandas as pd
 import os
 import pickle
 
+# Define the directory where the script is located
+script_dir = os.path.dirname(__file__)
+
 # Load the pickled files
-vectorizer = joblib.load('C:/Users/samuk/Desktop/Team-EG4_Streamlit/tfidf_vectorizer.pkl')
-anime_data = pd.read_pickle('C:/Users/samuk/Desktop/Team-EG4_Streamlit/anime_data.pkl')
+vectorizer = joblib.load(os.path.join(script_dir, 'tfidf_vectorizer.pkl'))
+anime_data = pd.read_pickle(os.path.join(script_dir, 'anime_data.pkl'))
 
 def recommend_anime_by_genre(selected_genre, top_n=10):
     # Filter anime based on selected genre
