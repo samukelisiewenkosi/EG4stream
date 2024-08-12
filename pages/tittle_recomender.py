@@ -4,12 +4,14 @@ import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import os
-import pickle
+
+# Define the directory of the current script
+BASE_DIR = os.path.dirname(__file__)
 
 # Load the dataset
 def load_data():
-    # Ensure the correct path and file name
-    anime_df = pd.read_csv('C:/Users/samuk/Desktop/Team-EG4_Streamlit/anime.csv', encoding='latin1')
+    # Use relative path
+    anime_df = pd.read_csv(os.path.join(BASE_DIR, 'anime.csv'), encoding='latin1')
     return anime_df
 
 # Load datasets
