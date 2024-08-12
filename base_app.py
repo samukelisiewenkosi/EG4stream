@@ -7,19 +7,17 @@ import seaborn as sns
 from wordcloud import WordCloud
 
 # Import pages
-
-from pages import user_guide ,genre_recomender ,tittle_recomender ,EDA ,Teams ,FAQs
+from pages import user_guide, genre_recomender, tittle_recomender, EDA, Teams, FAQs
 
 # Define the main app function
 def main():
     st.sidebar.title("Navigation")
-    page = st.sidebar.selectbox("Go to", ['Home', 'user_guide',  'genre_recomender', 'tittle_recomender',  'EDA', 'Teams', 'FAQs'])
+    page = st.sidebar.selectbox("Go to", ['Home', 'user_guide', 'genre_recomender', 'tittle_recomender', 'EDA', 'Teams', 'FAQs'])
 
     if page == "Home":
         home()
     elif page == "user_guide":
         user_guide.app()
-    
     elif page == "EDA":
         EDA.app()
     elif page == "FAQs":
@@ -30,7 +28,6 @@ def main():
         tittle_recomender.app()
     elif page == "genre_recomender":
         genre_recomender.app()
-  
 
 def home():
     # Custom CSS for styling
